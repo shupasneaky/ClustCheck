@@ -16,3 +16,5 @@ Imports:
     mclust,
     Rtsne,
     stats
+URL: https://github.com/shupasneaky/ClustCheck
+BugReports: https://github.com/shupasneaky/ClustCheck/issues
