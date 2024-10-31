@@ -7,7 +7,7 @@
 run_louvain(data_input, k_nearest_neighbors, resolution)
 }
 \arguments{
-\item{data_input}{Either a diagonal numeric matrix or a distance object from \code{\link[stats:dist]{stats::dist()}}. The distance_object output from \code{dimension_reduction_list()}}
+\item{data_input}{Either a diagonal numeric matrix or a distance object from \code{\link[stats:dist]{stats::dist()}}. The distance_object output from \code{\link[=dimension_reduction_list]{dimension_reduction_list()}}.}
 
 \item{k_nearest_neighbors}{number of neighbors to be used when constructing the nearest neighbor graph.}
 

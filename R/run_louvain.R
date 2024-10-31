@@ -2,7 +2,7 @@
 #' @description
 #' conducts Louvain clustering for multiple vectors of parameter choices.
 #'
-#' @param data_input Either a diagonal numeric matrix or a distance object from [stats::dist()]. The distance_object output from `dimension_reduction_list()`
+#' @param data_input Either a diagonal numeric matrix or a distance object from [stats::dist()]. The distance_object output from [dimension_reduction_list()].
 #' @param k_nearest_neighbors number of neighbors to be used when constructing the nearest neighbor graph.
 #' @param resolution A scalar between 0 and 1. The `resolution` parameter from [igraph::cluster_louvain()].
 #'
