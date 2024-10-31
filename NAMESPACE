@@ -3,3 +3,5 @@
 export(dimension_reduction_list)
 export(run_hierarchical)
 export(run_kmeans)
+export(run_leiden)
+export(run_louvain)
