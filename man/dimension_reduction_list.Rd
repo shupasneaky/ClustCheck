@@ -2,21 +2,25 @@
 % Please edit documentation in R/dimension_reduction_list.R
 \name{dimension_reduction_list}
 \alias{dimension_reduction_list}
-\title{creates a list of different levels of dimension reduction.}
+\title{PCA and tSNE Dimension Reduction}
 \usage{
 dimension_reduction_list(numeric_matrix, rank. = 50, dims = 3, ...)
 }
 \arguments{
-\item{numeric_matrix}{numeric matrix.}
+\item{numeric_matrix}{numeric matrix with samples as columns and variables as rows.}
 
-\item{rank.}{The maximal number of principle components to be used. See \code{\link[stats:prcomp]{stats::prcomp()}} for more details.}
+\item{rank.}{The maximal number of principle components to be used. See \code{\link[stats:prcomp]{stats::prcomp()}}
+for more details.}
 
 \item{dims}{An integer output for dimensionality of the Rtsne reduction, either 2 or 3. usually 2. See \code{\link[Rtsne:Rtsne]{Rtsne::Rtsne()}} for more details.}
 
 \item{...}{Allows input of additional \code{\link[Rtsne:Rtsne]{Rtsne::Rtsne()}} parameters.}
 }
 \value{
-A list of all different dimension reductions recorded. Takes the form of a pca object, pca distance object, pca distance matrix, tsne object, tsne distance object, tsne distance matrix. Each of the following are used in the clustering procedures in \code{ClustCheck}.
+A list of all different dimension reductions recorded.
+Takes the form of a pca object, pca distance matrix, tsne object,
+tsne distance matrix. Each of the following are used in the
+clustering procedures in \code{ClustCheck}.
 }
 \description{
 creates a list of different levels of dimension reduction.
@@ -24,9 +28,11 @@ creates a list of different levels of dimension reduction.
 \examples{
 # load base iris dataset from rstudio
 data("iris")
-x <- iris[,1:4]
+x <- t(iris[,1:4])
 
+set.seed(1)
 dimension_reduction_list(x)
+
 }
 \seealso{
 \code{\link[stats:prcomp]{stats::prcomp()}}, \code{\link[Rtsne:Rtsne]{Rtsne::Rtsne()}}, \code{\link[stats:dist]{stats::dist()}}
