@@ -7,7 +7,7 @@
 run_hierarchical(data_input, cluster_sizes, method = "ward.D", members = NULL)
 }
 \arguments{
-\item{data_input}{one of the resulting data structures from \code{\link[=dimension_reduction_list]{dimension_reduction_list()}}.}
+\item{data_input}{A distance matrix. Can be one of the distance objects from \code{\link[=dimension_reduction_list]{dimension_reduction_list()}}.}
 
 \item{cluster_sizes}{a vector of cluster sizes.
 The value is used as the number of centers within \code{\link[stats:kmeans]{stats::kmeans()}}.}
@@ -35,10 +35,7 @@ x <- t(iris[,1:4])
 y <- dimension_reduction_list(x)
 
 # for a single data structure
-run_hierarchical(y$pca, 1:5)
-
-# for the entire list of data structures
-lapply(y, function(t) run_hierarchical(t,1:5))
+run_hierarchical(y$pca_distance_object, 1:5)
 
 }
 \seealso{

@@ -7,8 +7,8 @@
 #' @param dims An integer output for dimensionality of the Rtsne reduction, either 2 or 3. usually 2. See [Rtsne::Rtsne()] for more details.
 #' @param ... Allows input of additional [Rtsne::Rtsne()] parameters.
 #' @return A list of all different dimension reductions recorded.
-#' Takes the form of a pca object, pca distance matrix, tsne object,
-#'  tsne distance matrix. Each of the following are used in the
+#' Takes the form of a pca object, pca distance object, tsne object,
+#'  tsne distance object. Each of the following are used in the
 #'  clustering procedures in `ClustCheck`.
 #'
 #' @seealso [stats::prcomp()], [Rtsne::Rtsne()], [stats::dist()]
@@ -26,7 +26,6 @@ dimension_reduction_list <- function(numeric_matrix, rank. = 50, dims = 3,...){
   pca <- stats::prcomp(x = t(numeric_matrix), rank. = rank.)$x
   pca_distance_object <- stats::dist(pca, method = "euclidean")
   pca_distance_matrix <- as.matrix(pca_distance_object)
-
   tsne <- Rtsne::Rtsne(
     X = pca_distance_matrix,
     dims = dims,
@@ -38,16 +37,15 @@ dimension_reduction_list <- function(numeric_matrix, rank. = 50, dims = 3,...){
     normalize = FALSE,...
   )$Y
   tsne_distance_object <- stats::dist(tsne, method = "euclidean")
-  tsne_distance_matrix <- as.matrix(tsne_distance_object)
 
   # remove dimnames
   dimnames(pca) <-
-    dimnames(pca_distance_matrix) <-
+    dimnames(pca_distance_object) <-
     dimnames(tsne) <-
-    dimnames(tsne_distance_matrix) <-NULL
+    dimnames(tsne_distance_object) <-NULL
 
   return(list(pca = pca,
-              pca_distance_matrix = pca_distance_matrix,
+              pca_distance_object = pca_distance_object,
               tsne = tsne,
-              tsne_distance_matrix = tsne_distance_matrix))
+              tsne_distance_object = tsne_distance_object))
 }

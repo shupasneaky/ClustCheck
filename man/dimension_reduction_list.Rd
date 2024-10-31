@@ -18,8 +18,8 @@ for more details.}
 }
 \value{
 A list of all different dimension reductions recorded.
-Takes the form of a pca object, pca distance matrix, tsne object,
-tsne distance matrix. Each of the following are used in the
+Takes the form of a pca object, pca distance object, tsne object,
+tsne distance object. Each of the following are used in the
 clustering procedures in \code{ClustCheck}.
 }
 \description{
